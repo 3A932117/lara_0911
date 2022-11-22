@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;//使用Model讀取資料
 use Illuminate\Http\Request;
 
 class AdminPostsController extends Controller
 {
     public function index()
     {
-        return view('admin.posts.index');
+        /////使用Model讀取資料/////
+        $posts = Post::orderBy('created_at', 'DESC')->get();
+        $data = ['posts' => $posts];
+        return view('admin.posts.index', $data);
     }
 
     public function create()
