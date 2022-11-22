@@ -35,7 +35,14 @@
                     <a class="btn btn-sm btn-primary" href="{{ route('admin.posts.edit',$post->id) }}">編輯</a>
                     <!-- route('admin.posts.edit',$post->id) 此超連結路由是練習6的起始路由，用來叫出某一貼文，以便進行修改。-->
                     /
-                    <a href="#">刪除</a>
+{{--                    <form action="/admin/posts/{{$post->id}}" method="post" style="display:inline-block">
+                      @method('DELETE')
+                      @csrf --}}
+                    <form action="{{ route('admin.posts.destroy', $post->id )}}" method="post" style="display:inline-block">
+                        {{method_field('DELETE')}}
+                        {{csrf_field()}}
+                        <button class="btn btn-sm btn-danger"type="submit">刪除</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
