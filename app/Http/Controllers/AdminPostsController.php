@@ -22,7 +22,11 @@ class AdminPostsController extends Controller
 
     public function store(Request $request)
     {
-        //
+        /////將表單送過來的資料用 Model 寫入資料庫/////
+        /////意思是將View送出的表單資料跟Post這個Model連接(Model用來存取資料表)，進行新增/////
+        Post::create($request->all());
+        /////設定頁面跳轉/////
+        return redirect()->route('admin.posts.index');
     }
 
     public function edit($id)
