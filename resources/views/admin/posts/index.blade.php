@@ -14,6 +14,7 @@
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a class="btn btn-success btn-sm" href="{{ route('admin.posts.create') }}">新增</a>
+                <!--用來串接AdminPostsController的create()方法，以便回傳新增貼文的表單，表單定義在create.blade.php。-->
     </div>
     <table class="table">
         <thead>
